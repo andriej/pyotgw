@@ -615,7 +615,7 @@ class pyotgw:
 
     async def prio_message(self, message, timeout=OTGW_DEFAULT_TIMEOUT):
         """
-        NOT IMPLEMENTED YET!
+        PARTIALLY IMPLEMENTED - JUST SENDING THE VALUE GIVEN
         Specify a one-time priority message to be sent to the boiler at
         the first opportunity. If the specified message returns the
         number of Transparent Slave Parameters (TSPs) or Fault History
@@ -625,7 +625,12 @@ class pyotgw:
         This method is a coroutine
         """
         # TODO: implement this, including FHB/TSP processing
-        return
+        cmd = OTGW_CMD_PRIO_MSG
+        status = {}
+        ret = await self._wait_for_cmd(cmd, message, timeout)
+        if ret is None:
+            return
+        return ret
 
     async def set_response(self, data_id, data, timeout=OTGW_DEFAULT_TIMEOUT):
         """

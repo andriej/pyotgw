@@ -110,8 +110,10 @@ DATA_CONTROL_SETPOINT_2 = 'control_setpoint_2'
 DATA_ROOM_SETPOINT_OVRD = 'room_setpoint_ovrd'
 
 # MSG_TSP
+DATA_SLAVE_TSP = 'transparent_slave_parameter_value'
 
 # MSG_TSPIDX
+DATA_SLAVE_TSPIDX = 'transparent_slave_parameter_idx'
 
 # MSG_FHBSIZE
 

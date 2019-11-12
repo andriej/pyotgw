@@ -432,6 +432,10 @@ class protocol(asyncio.Protocol):
                 # Slave reports product type and version
                 self.status[DATA_SLAVE_PRODUCT_TYPE] = self._get_u8(msb)
                 self.status[DATA_SLAVE_PRODUCT_VERSION] = self._get_u8(lsb)
+            elif msgid == MSG_TSPIDX:
+                # Slave reports tsp idx and value
+                self.status[DATA_SLAVE_TSPIDX] = self._get_u8(msb)
+                self.status[DATA_SLAVE_TSP] = self._get_u8(lsb)
         self._updateq.put_nowait(dict(self.status))
 
     def _get_flag8(self, byte):
